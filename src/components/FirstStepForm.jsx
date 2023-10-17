@@ -1,4 +1,4 @@
-const FirstStepForm = () => {
+const FirstStepForm = ({ formData, handleInputChange }) => {
   return (
     <section className="flex flex-col content-center justify-center p-6 py-9 ">
       <div className="flex h-[100%] flex-col gap-3 rounded-xl bg-white p-8 shadow">
@@ -17,11 +17,13 @@ const FirstStepForm = () => {
             name="name"
             id="name"
             placeholder="e.g Stephen King"
+            value={formData.name}
+            onChange={handleInputChange}
             required
           />
 
           <label
-            htmlFor="name"
+            htmlFor="email"
             className="mt-3 block text-[.9rem] text-marine-blue"
           >
             Email Address
@@ -29,9 +31,11 @@ const FirstStepForm = () => {
           <input
             className="rounded border py-2 pl-4"
             type="text"
-            name="name"
-            id="name"
+            name="email"
+            id="e-address"
             placeholder="e.g sephenking@lorem.com"
+            value={formData.email}
+            onChange={handleInputChange}
             required
           />
 
@@ -47,6 +51,8 @@ const FirstStepForm = () => {
             name="phone"
             id="phone"
             placeholder="e.g +1 234 567 890"
+            value={formData.phone}
+            onChange={handleInputChange}
             required
           />
         </div>
