@@ -1,35 +1,35 @@
 import "./MultiStepForm.css";
-("/assets/images/bg-sidebar-mobile.svg");
+
 const MultiStepForm = () => {
   return (
-    <section className="font-main-font h-screen m-0 p-0">
-      <div className="py-10 w-[100%] h-[10.75rem] bg-cover bg-no-repeat bg-center bg-[url('/assets/images/bg-sidebar-mobile.svg')]">
+    <section className="m-0 h-screen p-0 font-main-font">
+      <div className="h-[10.75rem] w-[100%] bg-[url('/assets/images/bg-sidebar-mobile.svg')] bg-cover bg-center bg-no-repeat py-10">
         <header>
-          <ul className="list-none gap-7 flex justify-center  items-center relative">
+          <ul className="relative flex list-none items-center  justify-center gap-7">
             <li>
-              <div className="text-xs hover:bg-sky-700 text-white border flex items-center justify-center rounded-full text-center h-[1.5rem] w-[1.5rem]">
+              <div className="flex h-[1.5rem] w-[1.5rem] items-center justify-center rounded-full border text-center text-xs text-white hover:bg-sky-700">
                 1
               </div>
             </li>
             <li>
-              <div className="text-xs text-white border flex items-center justify-center rounded-full text-center h-[1.5rem] w-[1.5rem]">
+              <div className="flex h-[1.5rem] w-[1.5rem] items-center justify-center rounded-full border text-center text-xs text-white">
                 2
               </div>
             </li>
             <li>
-              <div className="text-xs text-white border flex items-center justify-center rounded-full text-center h-[1.5rem] w-[1.5rem]">
+              <div className="flex h-[1.5rem] w-[1.5rem] items-center justify-center rounded-full border text-center text-xs text-white">
                 2
               </div>
             </li>
             <li>
-              <div className="text-xs text-white border flex items-center justify-center rounded-full text-center h-[1.5rem] w-[1.5rem]">
+              <div className="flex h-[1.5rem] w-[1.5rem] items-center justify-center rounded-full border text-center text-xs text-white">
                 4
               </div>
             </li>
           </ul>
         </header>
-        <section className="p-6 py-9 flex flex-col content-center justify-center">
-          <div className="bg-black h-[20rem] rounded-xl"></div>
+        <section className="flex flex-col content-center justify-center p-6 py-9">
+          <div className="h-[25rem] rounded-xl bg-black"></div>
         </section>
       </div>
 
