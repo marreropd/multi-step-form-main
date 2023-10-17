@@ -12,7 +12,7 @@ const FirstStepForm = () => {
             Name
           </label>
           <input
-            className="rounded border p-2 text-[.9rem]"
+            className="rounded border py-2 pl-4 text-[.9rem]"
             type="text"
             name="name"
             id="name"
@@ -27,7 +27,7 @@ const FirstStepForm = () => {
             Email Address
           </label>
           <input
-            className="rounded border p-2"
+            className="rounded border py-2 pl-4"
             type="text"
             name="name"
             id="name"
@@ -42,7 +42,7 @@ const FirstStepForm = () => {
             Phone Number
           </label>
           <input
-            className="rounded border p-2"
+            className="rounded border py-2 pl-4"
             type="tel"
             name="phone"
             id="phone"
