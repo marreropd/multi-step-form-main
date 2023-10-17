@@ -8,8 +8,8 @@ const HeaderSteps = ({ selected, setSelected }) => {
       <ul className="relative flex list-none items-center  justify-center gap-7">
         <li onClick={() => setSelected(1)}>
           <div
-            className={` flex h-[2rem] w-[2rem] cursor-pointer items-center justify-center rounded-full border text-center text-[.9rem] text-white ${
-              selected === 1 ? stylesSelected.selected : ""
+            className={` flex h-[2rem] w-[2rem] cursor-pointer items-center justify-center rounded-full border text-center text-[.9rem] ${
+              selected === 1 ? stylesSelected.selected : "text-white"
             }`}
           >
             1
@@ -17,8 +17,8 @@ const HeaderSteps = ({ selected, setSelected }) => {
         </li>
         <li onClick={() => setSelected(2)}>
           <div
-            className={`flex h-[2rem] w-[2rem] cursor-pointer items-center justify-center rounded-full border text-center text-[.9rem] text-white ${
-              selected === 2 ? stylesSelected.selected : ""
+            className={`flex h-[2rem] w-[2rem] cursor-pointer items-center justify-center rounded-full border text-center text-[.9rem] ${
+              selected === 2 ? stylesSelected.selected : "text-white"
             }`}
           >
             2
@@ -26,8 +26,8 @@ const HeaderSteps = ({ selected, setSelected }) => {
         </li>
         <li onClick={() => setSelected(3)}>
           <div
-            className={`flex h-[2rem] w-[2rem] cursor-pointer items-center justify-center rounded-full border text-center text-[.9rem] text-white ${
-              selected === 3 ? stylesSelected.selected : ""
+            className={`flex h-[2rem] w-[2rem] cursor-pointer items-center justify-center rounded-full border text-center text-[.9rem] ${
+              selected === 3 ? stylesSelected.selected : "text-white"
             }`}
           >
             3
@@ -35,8 +35,8 @@ const HeaderSteps = ({ selected, setSelected }) => {
         </li>
         <li onClick={() => setSelected(4)}>
           <div
-            className={`flex h-[2rem] w-[2rem] cursor-pointer items-center justify-center rounded-full border text-center text-[.9rem] text-white ${
-              selected === 4 ? stylesSelected.selected : ""
+            className={`flex h-[2rem] w-[2rem] cursor-pointer items-center justify-center rounded-full border text-center text-[.9rem] ${
+              selected === 4 ? stylesSelected.selected : "text-white"
             }`}
           >
             4

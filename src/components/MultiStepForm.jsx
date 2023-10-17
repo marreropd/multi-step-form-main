@@ -48,7 +48,7 @@ const MultiStepForm = () => {
       <footer className="fixed bottom-0 flex h-[5rem] w-full items-center justify-between bg-white px-7">
         {selected !== 1 ? (
           <span
-            className="text-cool-gray"
+            className="cursor-pointer text-cool-gray"
             onClick={() => setSelected(selected !== 1 ? selected - 1 : 1)}
           >
             Go Back
@@ -58,14 +58,14 @@ const MultiStepForm = () => {
             <span></span>
           </>
         )}
-        <label
+        <span
           onClick={() => setSelected(selected !== 4 ? selected + 1 : 4)}
           htmlFor="submit-form-step-1"
           tabIndex="0"
-          className="justify-self-end rounded bg-marine-blue px-4 py-[.6rem] text-white "
+          className="cursor-pointer justify-self-end rounded bg-marine-blue px-4 py-[.6rem] text-white "
         >
           Next Step
-        </label>
+        </span>
       </footer>
       {/* <p className="bg-marine-blue text-light-blue">hola</p> */}
     </section>

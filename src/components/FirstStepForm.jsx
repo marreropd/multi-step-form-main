@@ -32,7 +32,7 @@ const FirstStepForm = ({ formData, handleInputChange }) => {
             className="rounded border py-2 pl-4"
             type="text"
             name="email"
-            id="e-address"
+            id="email"
             placeholder="e.g sephenking@lorem.com"
             value={formData.email}
             onChange={handleInputChange}
