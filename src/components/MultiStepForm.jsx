@@ -3,7 +3,7 @@ import "./MultiStepForm.css";
 
 const MultiStepForm = () => {
   return (
-    <section className="h-screen font-main-font">
+    <section className="flex h-screen flex-col font-main-font">
       <div className="h-[10.75rem] w-[100%] bg-[url('/assets/images/bg-sidebar-mobile.svg')] bg-cover bg-center bg-no-repeat py-10">
         <header>
           <ul className="relative flex list-none items-center  justify-center gap-7">
@@ -30,11 +30,16 @@ const MultiStepForm = () => {
           </ul>
         </header>
         <FirstStepForm />
-        {/*   <label for="submit-form-step-1" tabindex="0">
-          Next Step
-        </label> */}
       </div>
-
+      <footer className="fixed bottom-0 flex h-[5rem] w-full items-center justify-end bg-white px-7 align-middle">
+        <label
+          for="submit-form-step-1"
+          tabindex="0"
+          className="rounded bg-marine-blue px-4 py-[.6rem] text-white"
+        >
+          Next Step
+        </label>
+      </footer>
       {/*       <p className="bg-marine-blue text-light-blue">hola</p> */}
     </section>
   );
