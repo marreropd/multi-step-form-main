@@ -1,41 +1,39 @@
+import { useState } from "react";
 import FirstStepForm from "./FirstStepForm";
+import HeaderSteps from "./HeaderSteps";
+import SecondStepForm from "./SecondStepForm";
 import "./MultiStepForm.css";
 
 const MultiStepForm = () => {
+  const [selected, setSelected] = useState(1);
+
   return (
     <section className="flex h-screen flex-col font-main-font">
       <div className="h-[10.75rem] w-[100%] bg-[url('/assets/images/bg-sidebar-mobile.svg')] bg-cover bg-center bg-no-repeat py-10">
-        <header>
-          <ul className="relative flex list-none items-center  justify-center gap-7">
-            <li>
-              <div className="flex h-[2rem] w-[2rem] items-center justify-center rounded-full border text-center text-xs text-white hover:bg-sky-700">
-                1
-              </div>
-            </li>
-            <li>
-              <div className="flex h-[2rem] w-[2rem] items-center justify-center rounded-full border text-center text-xs text-white">
-                2
-              </div>
-            </li>
-            <li>
-              <div className="flex h-[2rem] w-[2rem] items-center justify-center rounded-full border text-center text-xs text-white">
-                2
-              </div>
-            </li>
-            <li>
-              <div className="flex h-[2rem] w-[2rem] items-center justify-center rounded-full border text-center text-xs text-white">
-                4
-              </div>
-            </li>
-          </ul>
-        </header>
-        <FirstStepForm />
+        <HeaderSteps selected={selected} setSelected={setSelected} />
+        {selected === 1 && <FirstStepForm />}
+        {selected === 2 && <SecondStepForm />}
+        {selected === 3 && <FirstStepForm />}
+        {selected === 4 && <FirstStepForm />}
       </div>
-      <footer className="fixed bottom-0 flex h-[5rem] w-full items-center justify-end bg-white px-7 align-middle">
+      <footer className="fixed bottom-0 flex h-[5rem] w-full items-center justify-between bg-white px-7">
+        {selected !== 1 ? (
+          <span
+            className="text-cool-gray"
+            onClick={() => setSelected(selected !== 1 ? selected - 1 : 1)}
+          >
+            Go Back
+          </span>
+        ) : (
+          <>
+            <span></span>
+          </>
+        )}
         <label
-          for="submit-form-step-1"
-          tabindex="0"
-          className="rounded bg-marine-blue px-4 py-[.6rem] text-white"
+          onClick={() => setSelected(selected !== 4 ? selected + 1 : 4)}
+          htmlFor="submit-form-step-1"
+          tabIndex="0"
+          className="justify-self-end rounded bg-marine-blue px-4 py-[.6rem] text-white "
         >
           Next Step
         </label>
