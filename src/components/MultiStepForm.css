@@ -22,4 +22,8 @@
       /* Fonts */
       --main-font:'Ubuntu', sans-serif;
     }
+
+    body{
+      @apply bg-magnolia
+    }
   }
