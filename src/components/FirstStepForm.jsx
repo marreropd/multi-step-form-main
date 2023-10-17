@@ -7,7 +7,7 @@ const FirstStepForm = () => {
           Please provide your name, email, adress, and phone number.
         </p>
 
-        <form action="/" className="flex flex-col font-medium ">
+        <div className="flex flex-col font-medium ">
           <label htmlFor="name" className="block text-[.9rem] text-marine-blue">
             Name
           </label>
@@ -49,9 +49,7 @@ const FirstStepForm = () => {
             placeholder="e.g +1 234 567 890"
             required
           />
-
-          <input type="submit" id="submit-form-step-1" class="hidden" />
-        </form>
+        </div>
       </div>
     </section>
   );
