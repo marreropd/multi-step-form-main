@@ -16,7 +16,7 @@ const ChargeToggle = ({ formData, handleInputChange }) => {
         </span>
         <span>
           <label
-            class="inline-block pl-[0.15rem] hover:cursor-pointer"
+            className="inline-block pl-[0.15rem] hover:cursor-pointer"
             htmlFor="flexSwitchCheckDefault"
           ></label>
           <input
