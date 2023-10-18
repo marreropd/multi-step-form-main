@@ -1,7 +1,7 @@
 const ChargeToggle = ({ formData, handleInputChange }) => {
   return (
     <label
-      className="inline-block rounded-md bg-alabaster p-4 pl-[0.15rem] hover:cursor-pointer"
+      className="inline-block rounded-md  p-4 pl-[0.15rem] hover:cursor-pointer"
       htmlFor="flexSwitchCheckDefault"
     >
       <div className="flex justify-evenly">
