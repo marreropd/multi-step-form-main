@@ -21,11 +21,11 @@ const ChargeToggle = ({ formData, handleInputChange }) => {
           ></label>
           <input
             className="checked:bg-primary checked:after:bg-primary checked:focus:border-primary checked:focus:bg-primary 
-              dark:checked:bg-primary dark:checked:after:bg-primary mr-2 mt-[0.1rem] h-4 w-8 
-              appearance-none rounded-[0.4375rem] 
-              bg-white before:pointer-events-none before:absolute before:h-4 before:w-4 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] 
-              after:-mt-[0.1px] after:h-4 after:w-4 after:rounded-full 
-              after:border-none after:bg-white
+              dark:checked:bg-primary dark:checked:after:bg-primary after: mr-2 mt-[0.1rem] h-4 
+              w-8 appearance-none 
+              rounded-[0.4375rem] before:pointer-events-none before:absolute before:h-4 before:w-4 before:rounded-full before:bg-transparent before:content-[''] after:absolute 
+              after:z-[2] after:-mt-[0.1px] after:h-4 after:w-4 
+              after:rounded-full after:border-none
               after:shadow-[0_0px_3px_0_rgb(0_0_0_/_7%),_0_2px_2px_0_rgb(0_0_0_/_4%)] 
               after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] 
               checked:after:absolute checked:after:z-[2] checked:after:-mt-[0.1px] checked:after:ml-[1.0625rem] 
