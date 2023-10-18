@@ -1,7 +1,8 @@
 import { useState } from "react";
-import FirstStepForm from "./FirstStepForm";
+import FirstStepForm from "./steps/FirstStepForm";
 import HeaderSteps from "./HeaderSteps";
-import SecondStepForm from "./SecondStepForm";
+import SecondStepForm from "./steps/SecondStepForm";
+import ThirdStepForm from "./steps/ThirdStepForm";
 import "./MultiStepForm.css";
 
 const MultiStepForm = () => {
@@ -16,15 +17,15 @@ const MultiStepForm = () => {
 
   const handleInputChange = (event) => {
     let { name, value } = event.target;
+    // monthtly
 
-    name === "charge" && formData.charge === "monthly"
-      ? (value = "yearly")
-      : (value = "monthly");
+    name === "charge" && formData.charge === "monthly" && (value = "yearly");
+
+    name === "charge" && formData.charge === "yearly" && (value = "monthly");
 
     setFormData({ ...formData, [name]: value });
     console.log(formData);
   };
-  console.log(formData);
   return (
     <section className="flex h-screen flex-col font-main-font">
       <div className="h-[10.75rem] w-[100%] bg-[url('/assets/images/bg-sidebar-mobile.svg')] bg-cover bg-center bg-no-repeat py-10">
@@ -43,7 +44,7 @@ const MultiStepForm = () => {
           />
         )}
         {selected === 3 && (
-          <FirstStepForm
+          <ThirdStepForm
             formData={formData}
             handleInputChange={handleInputChange}
           />
