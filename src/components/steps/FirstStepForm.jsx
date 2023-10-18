@@ -3,7 +3,7 @@ const FirstStepForm = ({ formData, handleInputChange }) => {
     <section className="flex flex-col content-center justify-center p-6 py-9 ">
       <div className="flex h-[100%] flex-col gap-3 rounded-xl bg-white p-8 shadow">
         <h2 className="text-3xl font-medium text-marine-blue">Personal info</h2>
-        <p className="text-balance max-w-sm">
+        <p className="text-balance max-w-sm text-cool-gray">
           Please provide your name, email, adress, and phone number.
         </p>
 

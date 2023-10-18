@@ -1,61 +1,91 @@
-const ThirdStepForm = ({ formData, handleInputChange }) => {
+const ThirdStepForm = ({ formData, setFormData }) => {
+  const selected = formData?.services;
+  const selectedStyles = "border-purplish-blue bg-alabaster";
+
+  const handleOnClick = (e, service) => {
+    e.stopPropagation();
+    let arr = selected;
+    if (arr.includes(service)) {
+      arr = arr.filter(function (e) {
+        return e !== service;
+      });
+      setFormData({ ...formData, services: arr });
+    } else {
+      arr.push(service);
+      setFormData({ ...formData, services: arr });
+    }
+  };
+
   return (
     <section className="flex flex-col content-center justify-center p-6 py-9 ">
       <div className="flex h-[100%] flex-col gap-3 rounded-xl bg-white p-8 shadow">
         <h2 className="text-3xl font-medium text-marine-blue">Pick add-ons</h2>
-        <p className="text-balance max-w-sm ">
-          Please provide your name, email, adress, and phone number.
+        <p className="text-balance max-w-sm text-cool-gray">
+          Add-ons help enhance your gaming experience.
         </p>
 
-        <div className="flex flex-col font-medium ">
-          <label htmlFor="name" className="block text-[.9rem] text-marine-blue">
-            Name
-          </label>
+        <label
+          htmlFor="online-service"
+          className={`flex  cursor-pointer gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
+            selected?.includes("online-service") && selectedStyles
+          }`}
+        >
           <input
-            className="rounded border py-2 pl-4 text-[.9rem]"
-            type="text"
-            name="name"
-            id="name"
-            placeholder="e.g Stephen King"
-            value={formData.name}
-            onChange={handleInputChange}
-            required
+            name="online-service"
+            id="online-service"
+            type="checkbox"
+            defaultChecked={selected?.includes("online-service")}
+            onClick={(e) => handleOnClick(e, "online-service")}
           />
+          <p>
+            Online service
+            <span className="block text-sm font-light">
+              Access to multiplayer games
+            </span>
+          </p>
+        </label>
 
-          <label
-            htmlFor="email"
-            className="mt-3 block text-[.9rem] text-marine-blue"
-          >
-            Email Address
-          </label>
+        <label
+          htmlFor="larger-storage"
+          className={`flex cursor-pointer gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
+            selected?.includes("larger-storage") && selectedStyles
+          }`}
+        >
           <input
-            className="rounded border py-2 pl-4"
-            type="text"
-            name="email"
-            id="email"
-            placeholder="e.g sephenking@lorem.com"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
+            name="larger-storage"
+            id="larger-storage"
+            type="checkbox"
+            defaultChecked={selected?.includes("larger-storage")}
+            onClick={(e) => handleOnClick(e, "larger-storage")}
           />
+          <p>
+            Larger storage
+            <span className="block text-sm font-light">
+              Extra 1TB of cloud save
+            </span>
+          </p>
+        </label>
 
-          <label
-            htmlFor="phone"
-            className="mt-3 block text-[.9rem] text-marine-blue"
-          >
-            Phone Number
-          </label>
+        <label
+          htmlFor="customizable-profile"
+          className={`flex cursor-pointer gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
+            selected?.includes("customizable-profile") && selectedStyles
+          }`}
+        >
           <input
-            className="rounded border py-2 pl-4"
-            type="tel"
-            name="phone"
-            id="phone"
-            placeholder="e.g +1 234 567 890"
-            value={formData.phone}
-            onChange={handleInputChange}
-            required
+            name="customizable-profile"
+            id="customizable-profile"
+            type="checkbox"
+            defaultChecked={selected?.includes("customizable-profile")}
+            onClick={(e) => handleOnClick(e, "customizable-profile")}
           />
-        </div>
+          <p>
+            Customizable profile
+            <span className="block text-sm font-light">
+              Custom theme on your profile
+            </span>
+          </p>
+        </label>
       </div>
     </section>
   );

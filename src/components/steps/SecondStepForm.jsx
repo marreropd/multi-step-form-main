@@ -11,7 +11,7 @@ const SecondStepForm = ({ formData, setFormData, handleInputChange }) => {
         <h2 className="text-3xl font-medium text-marine-blue">
           Select your Plan
         </h2>
-        <p className="text-balance max-w-sm">
+        <p className="text-balance max-w-sm text-cool-gray">
           You have the option of monthly or yearly billing
         </p>
 

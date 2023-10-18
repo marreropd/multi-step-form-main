@@ -13,6 +13,7 @@ const MultiStepForm = () => {
     phone: "",
     plan: "",
     charge: "monthly",
+    services: [],
   });
 
   const handleInputChange = (event) => {
@@ -20,12 +21,11 @@ const MultiStepForm = () => {
     // monthtly
 
     name === "charge" && formData.charge === "monthly" && (value = "yearly");
-
     name === "charge" && formData.charge === "yearly" && (value = "monthly");
 
     setFormData({ ...formData, [name]: value });
-    console.log(formData);
   };
+
   return (
     <section className="flex h-screen flex-col font-main-font">
       <div className="h-[10.75rem] w-[100%] bg-[url('/assets/images/bg-sidebar-mobile.svg')] bg-cover bg-center bg-no-repeat py-10">
@@ -46,6 +46,7 @@ const MultiStepForm = () => {
         {selected === 3 && (
           <ThirdStepForm
             formData={formData}
+            setFormData={setFormData}
             handleInputChange={handleInputChange}
           />
         )}
