@@ -1,6 +1,6 @@
-import { useState } from "react";
+import ChargeToggle from "./ChargeToggle";
 
-const SecondStepForm = ({ formData, setFormData }) => {
+const SecondStepForm = ({ formData, setFormData, handleInputChange }) => {
   const selected = formData.plan;
   const selectedStyles = "border-purplish-blue bg-alabaster";
 
@@ -111,12 +111,10 @@ const SecondStepForm = ({ formData, setFormData }) => {
             <span className="block text-sm font-light">$15/mo</span>
           </p>
         </div>
-
-        <div className="flex justify-evenly">
-          <span>Monthly</span>
-          <span>ooo</span>
-          <span>Yearly</span>
-        </div>
+        <ChargeToggle
+          formData={formData}
+          handleInputChange={handleInputChange}
+        />
       </div>
     </section>
   );

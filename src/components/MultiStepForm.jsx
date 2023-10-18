@@ -6,19 +6,25 @@ import "./MultiStepForm.css";
 
 const MultiStepForm = () => {
   const [selected, setSelected] = useState(1);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     plan: "",
+    charge: "monthly",
   });
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    let { name, value } = event.target;
 
+    name === "charge" && formData.charge === "monthly"
+      ? (value = "yearly")
+      : (value = "monthly");
+
+    setFormData({ ...formData, [name]: value });
+    console.log(formData);
+  };
+  console.log(formData);
   return (
     <section className="flex h-screen flex-col font-main-font">
       <div className="h-[10.75rem] w-[100%] bg-[url('/assets/images/bg-sidebar-mobile.svg')] bg-cover bg-center bg-no-repeat py-10">
@@ -30,7 +36,11 @@ const MultiStepForm = () => {
           />
         )}
         {selected === 2 && (
-          <SecondStepForm formData={formData} setFormData={setFormData} />
+          <SecondStepForm
+            formData={formData}
+            setFormData={setFormData}
+            handleInputChange={handleInputChange}
+          />
         )}
         {selected === 3 && (
           <FirstStepForm
@@ -67,7 +77,6 @@ const MultiStepForm = () => {
           Next Step
         </span>
       </footer>
-      {/* <p className="bg-marine-blue text-light-blue">hola</p> */}
     </section>
   );
 };
