@@ -39,7 +39,10 @@ const FourthStepForm = ({ formData, setSelected }) => {
           <div className=" py-3 text-cool-gray">
             {services.map((service) => {
               return (
-                <div className="flex justify-between text-sm">
+                <div
+                  className="flex justify-between text-sm"
+                  key={() => crypto.randomUUID()}
+                >
                   <p className="py-2"> {service.title}</p>
                   <span className="self-center text-marine-blue">
                     +{service.price}/{chargeShort}
