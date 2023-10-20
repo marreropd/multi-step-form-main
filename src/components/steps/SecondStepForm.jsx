@@ -1,9 +1,31 @@
 import ChargeToggle from "../ChargeToggle";
 import { ArcadeIcon, AdvancedIcon, ProIcon } from "../Icons";
+import Plan from "../Plan";
 
 const SecondStepForm = ({ formData, setFormData, handleInputChange }) => {
-  const selected = formData.plan;
-  const selectedStyles = "border-purplish-blue bg-alabaster";
+  const plans = [
+    {
+      id: crypto.randomUUID(),
+      name: "Arcade",
+      icon: () => <ArcadeIcon />,
+      priceYearly: "90/yr",
+      priceMonthly: "9/mo",
+    },
+    {
+      id: crypto.randomUUID(),
+      name: "Advanced",
+      icon: () => <AdvancedIcon />,
+      priceYearly: "120/yr",
+      priceMonthly: "12/mo",
+    },
+    {
+      id: crypto.randomUUID(),
+      name: "Pro",
+      icon: () => <ProIcon />,
+      priceYearly: "150/yr",
+      priceMonthly: "155/mo",
+    },
+  ];
 
   return (
     <section className="flex flex-col content-center justify-center p-6 py-9">
@@ -14,45 +36,21 @@ const SecondStepForm = ({ formData, setFormData, handleInputChange }) => {
         <p className="text-balance max-w-sm text-cool-gray">
           You have the option of monthly or yearly billing
         </p>
+        {plans &&
+          plans.map((plan) => {
+            return (
+              <Plan
+                name={plan.name}
+                icon={plan.icon}
+                priceMonthly={plan.priceMonthly}
+                priceYearly={plan.priceYearly}
+                formData={formData}
+                setFormData={setFormData}
+                key={plan.id}
+              />
+            );
+          })}
 
-        <div
-          className={`flex  cursor-pointer gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
-            selected === "arcade" && selectedStyles
-          }`}
-          onClick={() => setFormData({ ...formData, plan: "arcade" })}
-        >
-          <ArcadeIcon />
-          <p>
-            Arcade
-            <span className="block text-sm font-light">$9/mo</span>
-          </p>
-        </div>
-
-        <div
-          className={`flex cursor-pointer gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
-            selected === "advanced" && selectedStyles
-          }`}
-          onClick={() => setFormData({ ...formData, plan: "advanced" })}
-        >
-          <AdvancedIcon />
-          <p>
-            Advanced
-            <span className="block text-sm font-light">$12/mo</span>
-          </p>
-        </div>
-
-        <div
-          className={`flex cursor-pointer gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
-            selected === "pro" && selectedStyles
-          }`}
-          onClick={() => setFormData({ ...formData, plan: "pro" })}
-        >
-          <ProIcon />
-          <p>
-            Pro
-            <span className="block text-sm font-light">$15/mo</span>
-          </p>
-        </div>
         <ChargeToggle
           formData={formData}
           handleInputChange={handleInputChange}

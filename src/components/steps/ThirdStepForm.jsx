@@ -1,7 +1,7 @@
+import AddOns from "../AddOns";
+
 const ThirdStepForm = ({ formData, setFormData }) => {
   const selected = formData?.services;
-  const selectedStyles = "border-purplish-blue bg-alabaster";
-
   const handleOnClick = (e, service) => {
     e.stopPropagation();
     let arr = selected;
@@ -16,6 +16,36 @@ const ThirdStepForm = ({ formData, setFormData }) => {
     }
   };
 
+  /* mock up data */
+  const addOns = [
+    {
+      id: crypto.randomUUID(),
+      name: "Online service",
+      description: "Access to multiplayer games",
+      priceYearly: "10/yr",
+      priceMonthly: "1/mo",
+      slug: "online-service",
+    },
+
+    {
+      id: crypto.randomUUID(),
+      name: "Larger  storage",
+      description: "Extra 1TB of cloud save",
+      priceYearly: "20/yr",
+      priceMonthly: "2/mo",
+      slug: "larger-storage",
+    },
+
+    {
+      id: crypto.randomUUID(),
+      name: "Customizable profile",
+      description: "Custom theme on your profile",
+      priceYearly: "20/yr",
+      priceMonthly: "2/mo",
+      slug: "customizable-profile",
+    },
+  ];
+
   return (
     <section className="flex flex-col content-center justify-center p-6 py-9 ">
       <div className="flex h-[100%] flex-col gap-3 rounded-xl bg-white p-8 shadow">
@@ -24,68 +54,25 @@ const ThirdStepForm = ({ formData, setFormData }) => {
           Add-ons help enhance your gaming experience.
         </p>
 
-        <label
-          htmlFor="online-service"
-          className={`flex  cursor-pointer gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
-            selected?.includes("online-service") && selectedStyles
-          }`}
-        >
-          <input
-            name="online-service"
-            id="online-service"
-            type="checkbox"
-            defaultChecked={selected?.includes("online-service")}
-            onClick={(e) => handleOnClick(e, "online-service")}
-          />
-          <p>
-            Online service
-            <span className="block text-sm font-light">
-              Access to multiplayer games
-            </span>
-          </p>
-        </label>
-
-        <label
-          htmlFor="larger-storage"
-          className={`flex cursor-pointer gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
-            selected?.includes("larger-storage") && selectedStyles
-          }`}
-        >
-          <input
-            name="larger-storage"
-            id="larger-storage"
-            type="checkbox"
-            defaultChecked={selected?.includes("larger-storage")}
-            onClick={(e) => handleOnClick(e, "larger-storage")}
-          />
-          <p>
-            Larger storage
-            <span className="block text-sm font-light">
-              Extra 1TB of cloud save
-            </span>
-          </p>
-        </label>
-
-        <label
-          htmlFor="customizable-profile"
-          className={`flex cursor-pointer gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
-            selected?.includes("customizable-profile") && selectedStyles
-          }`}
-        >
-          <input
-            name="customizable-profile"
-            id="customizable-profile"
-            type="checkbox"
-            defaultChecked={selected?.includes("customizable-profile")}
-            onClick={(e) => handleOnClick(e, "customizable-profile")}
-          />
-          <p>
-            Customizable profile
-            <span className="block text-sm font-light">
-              Custom theme on your profile
-            </span>
-          </p>
-        </label>
+        {addOns &&
+          addOns.map((add) => {
+            return (
+              <AddOns
+                key={add.id}
+                id={add.id}
+                name={add.name}
+                description={add.description}
+                price={
+                  formData.charge === "monthly"
+                    ? add.priceMonthly
+                    : add.priceYearly
+                }
+                slug={add.slug}
+                selected={selected}
+                handleOnClick={handleOnClick}
+              />
+            );
+          })}
       </div>
     </section>
   );
