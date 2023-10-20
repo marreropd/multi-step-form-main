@@ -72,16 +72,25 @@ const MultiStepForm = () => {
             <span></span>
           </>
         )}
-        <span
-          onClick={() => setSelected(selected !== 4 ? selected + 1 : 4)}
-          htmlFor="submit-form-step-1"
-          tabIndex="0"
-          className={`${
-            selected !== 4 ? "bg-marine-blue" : "bg-purplish-blue"
-          } w-[7rem] cursor-pointer justify-self-end rounded  py-[.6rem] text-center text-white `}
-        >
-          {selected !== 4 ? "Next Step" : "Confirm"}
-        </span>
+        {(!formData.plan && selected === 2) ||
+        ((!formData.name || !formData.email || !formData.phone) &&
+          selected === 1) ||
+        (formData.services.length === 0 && selected === 3) ? (
+          <p className="text-sm text-light-gray">
+            Complete the fields to continue
+          </p>
+        ) : (
+          <span
+            onClick={() => setSelected(selected !== 4 ? selected + 1 : 4)}
+            htmlFor="submit-form-step-1"
+            tabIndex="0"
+            className={`${
+              selected !== 4 ? "bg-marine-blue" : "bg-purplish-blue"
+            } w-[7rem] cursor-pointer justify-self-end rounded  py-[.6rem] text-center text-white `}
+          >
+            {selected !== 4 ? "Next Step" : "Confirm"}
+          </span>
+        )}
       </footer>
     </section>
   );
