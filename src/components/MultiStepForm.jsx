@@ -3,6 +3,7 @@ import FirstStepForm from "./steps/FirstStepForm";
 import HeaderSteps from "./HeaderSteps";
 import SecondStepForm from "./steps/SecondStepForm";
 import ThirdStepForm from "./steps/ThirdStepForm";
+import FourthStepForm from "./steps/FourthStepForm";
 import "./MultiStepForm.css";
 
 const MultiStepForm = () => {
@@ -51,9 +52,10 @@ const MultiStepForm = () => {
           />
         )}
         {selected === 4 && (
-          <FirstStepForm
+          <FourthStepForm
             formData={formData}
-            handleInputChange={handleInputChange}
+            setFormData={setFormData}
+            setSelected={setSelected}
           />
         )}
       </div>
