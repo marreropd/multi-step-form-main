@@ -23,7 +23,7 @@ const SecondStepForm = ({ formData, setFormData, handleInputChange }) => {
       name: "Pro",
       icon: () => <ProIcon />,
       priceYearly: "150/yr",
-      priceMonthly: "155/mo",
+      priceMonthly: "15/mo",
     },
   ];
 
