@@ -12,12 +12,12 @@ const AddOns = ({
     <label
       key={id}
       htmlFor={`${id}`}
-      className={`flex cursor-pointer justify-between gap-3 rounded border p-3 font-bold hover:border-purplish-blue ${
+      className={`flex cursor-pointer justify-between gap-2 rounded border p-2 font-bold hover:border-purplish-blue ${
         selected?.includes(slug) && selectedStyles
       }`}
       onClick={(e) => handleOnClick(e, slug)}
     >
-      <div className="flex gap-3">
+      <div className="flex gap-2">
         <input
           name={slug}
           id={id}
@@ -29,7 +29,7 @@ const AddOns = ({
           <span className="block text-sm font-light">{description}</span>
         </p>
       </div>
-      <p className="self-center px-2 font-thin text-purplish-blue">{`+$${price}`}</p>
+      <p className="self-center px-1 font-thin text-purplish-blue">{`+$${price}`}</p>
     </label>
   );
 };

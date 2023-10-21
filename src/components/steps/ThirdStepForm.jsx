@@ -48,7 +48,7 @@ const ThirdStepForm = ({ formData, setFormData }) => {
 
   return (
     <section className="flex flex-col content-center justify-center p-6 py-9 ">
-      <div className="flex h-[100%] flex-col gap-3 rounded-xl bg-white p-8 shadow">
+      <div className="flex flex-col gap-2 rounded-xl bg-white p-6 shadow">
         <h2 className="text-3xl font-medium text-marine-blue">Pick add-ons</h2>
         <p className="text-balance max-w-sm text-cool-gray">
           Add-ons help enhance your gaming experience.
