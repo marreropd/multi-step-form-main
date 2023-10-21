@@ -4,10 +4,12 @@ import HeaderSteps from "./HeaderSteps";
 import SecondStepForm from "./steps/SecondStepForm";
 import ThirdStepForm from "./steps/ThirdStepForm";
 import FourthStepForm from "./steps/FourthStepForm";
+import ThanksStep from "./steps/ThanksStep";
 import "./MultiStepForm.css";
 
 const MultiStepForm = () => {
   const [selected, setSelected] = useState(1);
+  const [isConfirm, setIsConfirm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -51,16 +53,17 @@ const MultiStepForm = () => {
             handleInputChange={handleInputChange}
           />
         )}
-        {selected === 4 && (
+        {!isConfirm && selected === 4 && (
           <FourthStepForm
             formData={formData}
             setFormData={setFormData}
             setSelected={setSelected}
           />
         )}
+        {isConfirm && <ThanksStep />}
       </div>
       <footer className="fixed bottom-0 flex h-[5rem] w-full items-center justify-between bg-white px-7">
-        {selected !== 1 ? (
+        {!isConfirm && selected !== 1 ? (
           <span
             className="cursor-pointer text-cool-gray"
             onClick={() => setSelected(selected !== 1 ? selected - 1 : 1)}
@@ -80,16 +83,22 @@ const MultiStepForm = () => {
             Complete the fields to continue
           </p>
         ) : (
-          <span
-            onClick={() => setSelected(selected !== 4 ? selected + 1 : 4)}
-            htmlFor="submit-form-step-1"
-            tabIndex="0"
-            className={`${
-              selected !== 4 ? "bg-marine-blue" : "bg-purplish-blue"
-            } w-[7rem] cursor-pointer justify-self-end rounded  py-[.6rem] text-center text-white `}
-          >
-            {selected !== 4 ? "Next Step" : "Confirm"}
-          </span>
+          isConfirm || (
+            <span
+              onClick={() =>
+                selected === 4
+                  ? setIsConfirm(true)
+                  : setSelected(selected !== 4 ? selected + 1 : 4)
+              }
+              htmlFor="submit-form-step-1"
+              tabIndex="0"
+              className={`${
+                selected !== 4 ? "bg-marine-blue" : "bg-purplish-blue"
+              } w-[7rem] cursor-pointer justify-self-end rounded  py-[.6rem] text-center text-white `}
+            >
+              {selected !== 4 ? "Next Step" : "Confirm"}
+            </span>
+          )
         )}
       </footer>
     </section>
